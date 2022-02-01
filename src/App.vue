@@ -70,7 +70,7 @@
       },
     };
     const emailClassRules = {
-      "cell-pass": (params) => {
+      "cell-yellow": (params) => {
         return params.value.length == 0
           ? 0
           : !params.value.match(
