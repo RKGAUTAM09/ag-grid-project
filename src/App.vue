@@ -70,12 +70,24 @@
       },
     };
     const emailClassRules = {
-      "cell-red": (params) => {
+      "cell-yellow": (params) => {
         return params.value.length == 0
           ? 0
           : !params.value.match(
               /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             );
+      },
+      "cell-yellow": (params) => {
+        return params.value == null
+          ? 0
+          : params.value.length > 0
+          ? params.value.length <= 2
+            ? 1
+            : 0
+          : 0;
+      },
+      "cell-red": (params) => {
+        return params.value == null ? 0 : params.value === "" ? 1 : 0;
       },
     };
 
