@@ -147,7 +147,13 @@
                   editable:true,
                   cellClassRules:nameClassRules,  
                 },
-                {headerName: "Email", field: "email", resizable:true,editable:true},
+                {
+                  headerName: "Email", 
+                  field: "email", 
+                  resizable:true,
+                  editable:true,
+                  cellClassRules:emailClassRules,
+                },
                 {
                   headerName: "Gender",
                   field: "gender",
