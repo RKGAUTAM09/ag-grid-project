@@ -55,6 +55,12 @@
       return match == "" ? [] : map[match];
     }
 
+    const emptyClassRules = {
+      "cell-red": (params) => {
+        return params.value == null ? 0 : params.value === "" ? 1 : 0;
+      },
+    }
+
     const nameClassRules = {
       "cell-red": (params) => {
         return params.value == null ? 0 : params.value === "" ? 1 : 0;
@@ -139,7 +145,7 @@
        beforeMount() {
             
             this.columnDefs = [
-                {headerName: "ID", field: "id",resizable:true,editable:true, checkboxSelection: true},
+                {headerName: "ID", field: "id",resizable:true,editable:true, checkboxSelection: true, cellClassRules:emptyClassRules,},
                 {
                   headerName: "Name", 
                   field: "name", 
@@ -159,17 +165,19 @@
                   field: "gender",
                   editable:true,
                   cellEditor: "agRichSelectCellEditor",
+                  cellClassRules:emptyClassRules,
                   cellEditorParams: {
                     cellHeight: 40,
                     values: ["Male", "Female"],
                   },
                 },
-                {headerName: "DOB", field: "dob", resizable:true,editable:true},
+                {headerName: "DOB", field: "dob", resizable:true,editable:true, cellClassRules:emptyClassRules,},
                 {
                   headerName: "Country",
                   field: "country",
                   editable:true,
                   cellEditor: "agRichSelectCellEditor",
+                  cellClassRules:emptyClassRules,
                   cellEditorParams: { cellHeight: 50, values: ["Ireland", "USA", "India", "England"] },
                 },
                 {
@@ -177,6 +185,7 @@
                   field: "city",
                   editable:true,
                   cellEditor: "agRichSelectCellEditor",
+                  cellClassRules:emptyClassRules,
                   cellEditorParams: cityEditorParams,
                 },
                 {
