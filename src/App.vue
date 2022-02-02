@@ -218,6 +218,7 @@
                 });
                 this.rowData = rem;
                 localStorage.setItem("r1", JSON.stringify(this.rowData));
+                console.log(localStorage.getItem())
                 params.api.applyTransaction({
                   remove: [params.node.data],
                 });
@@ -276,7 +277,7 @@
               if (
                 x.email.match(
                   /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                ) && x.name.length>2) {}
+                ) && (x.name.length>2) && (x.id.length>2) ){}
               else{
                 p="1";
               }
